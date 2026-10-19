@@ -27,7 +27,6 @@ const FAQ_DATA = [
     id: 5,
     question: "Can this specific accordion question be modified or disabled?",
     answer: "This is a disabled demonstration question to showcase restricted UI states.",
-    disabled: true,
   },
 ];
 
