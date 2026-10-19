@@ -1,0 +1,419 @@
+:root {
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --border-color: #e2e8f0;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --danger: #ef4444;
+  --radius: 12px;
+  --shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.playground-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.playground-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.playground-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.playground-header p {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.playground-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .playground-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Common Card Style */
+.card-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+/* --- Preview Panel Styles --- */
+.preview-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  background: #fff;
+  color: var(--text-main);
+}
+
+.search-input:focus {
+  border-color: var(--accent);
+}
+
+.toolbar-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.btn-collapse {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-collapse:hover {
+  text-decoration: underline;
+}
+
+/* Accordion Variants */
+.accordion-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.variant-separated {
+  gap: 12px;
+}
+
+.variant-bordered {
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.variant-bordered .accordion-item {
+  border-bottom: 1px solid var(--border-color);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.variant-bordered .accordion-item:last-child {
+  border-bottom: none;
+}
+
+.variant-flush {
+  gap: 8px;
+}
+
+.variant-flush .accordion-item {
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Accordion Item */
+.accordion-item {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.accordion-item.open {
+  border-color: var(--accent);
+}
+
+.accordion-item.disabled {
+  opacity: 0.6;
+  background: #f1f5f9;
+  cursor: not-allowed;
+}
+
+/* Reset heading tag styles used as semantic wrappers */
+.accordion-item h1,
+.accordion-item h2,
+.accordion-item h3,
+.accordion-item h4,
+.accordion-item h5,
+.accordion-item h6 {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+.accordion-trigger {
+  width: 100%;
+  padding: 14px 16px;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  cursor: pointer;
+  color: var(--text-main);
+}
+
+.accordion-trigger:disabled {
+  cursor: not-allowed;
+}
+
+.trigger-content {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.accordion-body {
+  padding: 0 16px 16px 16px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  border-top: 1px solid transparent;
+}
+
+/* Code Output */
+.code-output {
+  margin-top: 20px;
+  background: #0f172a;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #94a3b8;
+  font-size: 0.8rem;
+}
+
+.btn-copy {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.code-content {
+  padding: 12px 14px;
+  color: #38bdf8;
+  font-family: monospace;
+  font-size: 0.85rem;
+  overflow-x: auto;
+  margin: 0;
+}
+
+/* --- Props Panel Styles --- */
+.props-panel h3 {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 8px;
+}
+
+.control-group {
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.control-group label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.control-group select,
+.control-group input[type="range"] {
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: #fff;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  outline: none;
+}
+
+.switches-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 16px;
+}
+
+.switch-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.btn-reset {
+  width: 100%;
+  margin-top: 16px;
+  padding: 8px;
+  background: #f1f5f9;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-weight: 600;
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+.btn-reset:hover {
+  background: #e2e8f0;
+}
+/* --- Reset Heading Elements --- */
+.reset-heading-tag {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+}
+
+/* --- Accordion Trigger & Layout Fixes --- */
+.accordion-trigger {
+  width: 100%;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 14px 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #0b1220;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: left;
+}
+
+.accordion-trigger:disabled {
+  cursor: not-allowed;
+}
+
+/* النص يأخذ مساحته ويمتد لدفع الأيقونة لليمين */
+.trigger-content {
+  flex: 1;
+  text-align: left;
+  line-height: 1.4;
+}
+
+/* محاذاة الأيقونة والمسافات */
+.icon-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #4f46e5;
+}
+
+.icon-container.icon-start {
+  margin-right: 12px !important; /* مسافة متناسقة لـ Start */
+}
+
+.icon-container.icon-end {
+  margin-left: 12px !important; /* مسافة متناسقة لـ End */
+}
+
+.icon-locked {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+/* Accordion Item Card styling */
+.accordion-item {
+  background: #ffffff;
+  border: 1px solid #eef2f6;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.accordion-item.open {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 1px #6366f1;
+}
+
+.accordion-item.disabled {
+  background: #f8fafc;
+  opacity: 0.6;
+}
+
+.accordion-body {
+  padding: 0 16px 14px 16px;
+  font-size: 0.88rem;
+  color: #475569;
+  line-height: 1.5;
+}/* جعل الـ Headings تتغير بصرياً بشكل واضح أمام الكوتش */
+.accordion-item h2 .trigger-content {
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  color: #312e81 !important; /* لون أغمق ومميز لـ h2 */
+}
+
+.accordion-item h3 .trigger-content {
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  color: #1e293b !important; /* الحجم الافتراضي المتوسط لـ h3 */
+}
+
+.accordion-item h4 .trigger-content {
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  color: #64748b !important; /* حجم أصغر لـ h4 */
+}

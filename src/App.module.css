@@ -1,0 +1,33 @@
+.appRoot {
+  min-height: 100vh;
+  background: #f7f9fb;
+  padding: 28px;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial;
+  color: #0b1220;
+}
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 24px;
+  align-items: start;
+}
+.leftCol {
+}
+.card {
+  background: #fff;
+  border: 1px solid #eef2f6;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 8px 24px rgba(20, 24, 40, 0.06);
+}
+.brand {
+  font-weight: 700;
+  margin-bottom: 12px;
+}
